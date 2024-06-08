@@ -1,5 +1,5 @@
 ## TDOD Server
-a simple tood server with express and mongodb
+a simple todo server with express and mongodb
 <br/>
 
 1. install dependencies
