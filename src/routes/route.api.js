@@ -4,5 +4,6 @@ const router = express.Router();
 
 router.use("/todo", authMiddleware, require("./route.todo"));
 router.use("/auth", require("./route.auth"));
+router.use("/payment", authMiddleware, require("./route.payment"));
 
 module.exports = router;

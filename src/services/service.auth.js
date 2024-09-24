@@ -1,9 +1,11 @@
 const userModel = require("../models/model.user");
 const jwt = require("jsonwebtoken");
+const paymentService = require("./service.payment");
 const authService = {};
 
 authService.register = async (data) => {
-	await userModel.create(data);
+	const newUser = await userModel.create(data);
+	return await paymentService.createSubscriptionSession(newUser);
 };
 
 authService.login = async (data) => {
@@ -19,6 +21,11 @@ authService.login = async (data) => {
 			token: jwt.sign({ id: existingUser._id }, "some secret"),
 		};
 	} else errorGen("wrong password", 404);
+};
+
+authService.deleteUser = async (userId) => {
+	const deleted = await userModel.findByIdAndDelete({ _id: userId });
+	return deleted;
 };
 
 module.exports = authService;
