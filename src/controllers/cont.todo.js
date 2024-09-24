@@ -40,6 +40,7 @@ apiController.toggleCompleted = async (req, res) => {
 
 apiController.update = async (req, res) => {
     const data = req.body;
+    
     if (!isValidObjectId(data.todoId)) 
         return res.status(404).json({"message":"todo id is not valid"})
 

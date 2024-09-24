@@ -1,4 +1,4 @@
-const todoModel = require("../models/models.todo");
+const todoModel = require("../models/model.todo");
 
 todoServices = {}
 
