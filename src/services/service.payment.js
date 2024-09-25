@@ -1,6 +1,4 @@
-const stripe = require("stripe")(
-	"sk_test_51Q2ZDoL8che3ZyWprUSJ70W8oviq1GN3Czwq79H8e8Oh8qr8TwL0RdGctsUjNaf4eV3D0fADI7gfp1expBWIWVRj00VPQkD7mP",
-);
+const stripe = require("stripe")(process.env.STRIPE_SECRETE);
 const paymentService = {};
 
 paymentService.createSubscriptionSession = async (user) => {
