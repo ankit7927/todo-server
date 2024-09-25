@@ -3,6 +3,6 @@ const paymentController = require("../controllers/cont.paymnt");
 const router = express.Router();
 
 router.route("/subscription-details/:userEmail").get(paymentController.getSubscriptionDetails);
-router.route("/subscription-cancled/:userId").post(paymentController.canceledSubscription)
+router.route("/subscription-cancled/:userId").delete(paymentController.canceledSubscription)
 
 module.exports = router;

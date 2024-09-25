@@ -22,10 +22,10 @@ paymentController.canceledSubscription = async (req, res, next) => {
 	const userId = req.params.userId;
 	if (!isValidObjectId(userId))
 		return res.status(404).json({ message: "user id is not valid" });
-
+	
 	try {
 		await authService.deleteUser(userId);
-		return res.redirect("http://localhost:5173/register");
+		return res.send()
 	} catch (error) {
 		return res
 			.status(error.status || 500)
