@@ -21,7 +21,7 @@ paymentService.createSubscriptionSession = async (user) => {
 		if (subscriptions.data.length > 0) {
 			return await stripe.billingPortal.sessions.create({
 				customer: customer.id,
-				return_url: "http://localhost:3000",
+				return_url: "http://13.232.12.23:3000",
 			});
 		}
 	} else {
@@ -34,8 +34,8 @@ paymentService.createSubscriptionSession = async (user) => {
 	}
 
 	const session = await stripe.checkout.sessions.create({
-		success_url: "http://localhost:5173/login",
-		cancel_url: `http://localhost:5173/sub-cancel/${user._id}`,
+		success_url: "http://13.232.12.23:3000/login",
+		cancel_url: `http://13.232.12.23:3000/sub-cancel/${user._id}`,
 		payment_method_types: ["card"],
 		mode: "subscription",
 		billing_address_collection: "auto",
@@ -82,7 +82,7 @@ paymentService.getSubscriptionDetails = async (userEmail) => {
 		if (subscriptions.data.length > 0) {
 			return await stripe.billingPortal.sessions.create({
 				customer: customer.id,
-				return_url: "http://localhost:5173/",
+				return_url: "http://13.232.12.23:3000/",
 			});
 		} else {
 			throw new Error("no subscription found");
